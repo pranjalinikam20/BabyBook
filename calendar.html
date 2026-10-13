@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TinyTales – Scrapbook Calendar</title>
+<link rel="stylesheet" href="calendar.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="brand">TinyTales</div>
+    <ul class="nav-list">
+      <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+      <!--<li class="nav-item"><a href="addmemory.html">Add Memory</a></li>-->
+      <li class="nav-item"><a href="milestone.html">Milestones</a></li>
+      <li class="nav-item active"><a href="calendar.html">Calendar</a></li>
+      <li class="nav-item"><a href="scrapbook.html">Scrapbook</a></li>
+      <li class="nav-item"><a href="timecap.html">Time Capsule</a></li>
+      <li class="nav-item"><a href="settings.html">Settings</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+
+    <h1 class="page-title">TinyTales – Scrapbook Calendar</h1>
+
+    <div class="main">
+
+      <!-- ADD MEMORY PANEL -->
+      <div class="editor">
+        <h3>Add Memory</h3>
+        <input type="date">
+        <textarea placeholder="Write memory..."></textarea>
+        <input type="file">
+        <button>Save Memory</button>
+      </div>
+
+      <!-- CALENDAR -->
+      <div class="calendar-wrap">
+        <div class="navigation">
+          <button>◀</button>
+          <h3>January 2026</h3>
+          <button>▶</button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th>
+              <th>Thu</th><th>Fri</th><th>Sat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td><td></td><td></td><td></td><td>1</td><td>2</td><td>3</td>
+            </tr>
+            <tr>
+              <td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+            </tr>
+            <tr>
+              <td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td>
+            </tr>
+            <tr>
+              <td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td>
+            </tr>
+            <tr>
+              <td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

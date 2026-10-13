@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TinyTales Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <h2 class="brand">TinyTales</h2>
+
+  <ul class="nav-list">
+    <li class="nav-item active"><a href="dashboard.html">Dashboard</a></li>
+   <!--<li class="nav-item"><a href="addmemory.html">Add Memory</a></li>-->
+    <li class="nav-item"><a href="milestone.html">Milestones</a></li>
+    <li class="nav-item"><a href="calendar.html">Calendar</a></li>
+    <li class="nav-item"><a href="scrapbook.html">Scrapbook</a></li>
+    <li class="nav-item"><a href="timecap.html">Time Capsule</a></li>
+    <li class="nav-item"><a href="settings.html">Settings</a></li>
+  </ul>
+</nav>
+
+  <!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-left"></div>
+
+  <div class="top-right">
+    <a href="notification.html">Notifications</a>
+    <a href="profile.html">Profile</a>
+  </div>
+</div>
+
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+
+  <header>
+    <div>
+      <h1>Welcome back! 👋</h1>
+      <p>Emma’s journey continues with beautiful new memories</p>
+    </div>
+    <button class="add-memory-btn">+ Add Memory</button>
+  </header>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="card">
+      <div class="card-icon">📸</div>
+      <div>
+        <span>Total Memories</span>
+        <b>24</b>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📖</div>
+      <div>
+        <span>Journal Entries</span>
+        <b>12</b>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">❤️</div>
+      <div>
+        <span>Favorites</span>
+        <b>8</b>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🎂</div>
+      <div>
+        <span>Upcoming Events</span>
+        <b>2</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT MEMORIES -->
+  <section class="memories-section">
+    <div class="memories-header">
+      <h2>Recent Memories</h2>
+      <a href="#" class="view-all">View All →</a>
+    </div>
+
+    <div class="memory-grid">
+      <!-- Example card (PHP will generate these later) -->
+      <div class="memory-card">
+        <div class="memory-img">
+          <img src="https://via.placeholder.com/300">
+          <span class="memory-tag">Milestone</span>
+          <span class="fav">❤️</span>
+        </div>
+        <div class="memory-content">
+          <h3>First Smile</h3>
+          <p>Emma smiled for the first time 💖</p>
+          <small>12 Jan 2026</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

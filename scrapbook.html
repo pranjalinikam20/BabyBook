@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TinyTales – Scrapbook</title>
+<link rel="stylesheet" href="scrapbook.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="brand">TinyTales</div>
+    <ul class="nav-list">
+      <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+      <!--<li class="nav-item"><a href="addmemory.html">Add Memory</a></li>-->
+      
+      <li class="nav-item"><a href="milestone.html">Milestones</a></li>
+      <li class="nav-item"><a href="calendar.html">Calendar</a></li>
+      <li class="nav-item active"><a href="scrapbook.html">Scrapbook</a></li>
+      <li class="nav-item"><a href="timecap.html">Time Capsule</a></li>
+      <li class="nav-item"><a href="settings.html">Settings</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+
+    <!-- HEADER -->
+    <div class="page-header">
+      <h1>Notebook Scrapbook</h1>
+      <div class="page-actions">
+        <button>◀</button>
+        <span>Page 1</span>
+        <button>▶</button>
+        <button>Clear All</button>
+      </div>
+    </div>
+
+    <!-- SCRAPBOOK -->
+    <div class="scrapbook">
+      <div class="scrapbook-grid">
+
+        <!-- ADD MEMORY -->
+        <div class="editor">
+          <h3>Add Memory</h3>
+          <input type="text" placeholder="Title">
+          <input type="date">
+          <select>
+            <option>😊 Happy</option>
+            <option>🎉 Celebration</option>
+            <option>❤️ Special</option>
+          </select>
+          <input type="file">
+          <textarea placeholder="Note"></textarea>
+          <button>Add</button>
+        </div>
+
+        <!-- NOTEBOOK PAGE -->
+        <div class="notebook">
+          <h3>Notebook — Page 1</h3>
+          <p class="empty">No memories yet</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TinyTales - Login</title>
+
+  <link rel="stylesheet" href="login.css" />
+
+  <!-- 🔥 Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="title">
+        <h1>Welcome to TinyTales</h1>
+        <p>
+          Preserve your baby’s milestones, memories, and precious moments
+          securely with love.
+        </p>
+      </div>
+
+      <div class="form-title">Login</div>
+
+      <!-- 🔐 LOGIN FORM -->
+      <form id="loginForm" novalidate>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="Enter your email" />
+          <div class="error" id="emailError"></div>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="Enter your password" />
+          <div class="error" id="passwordError"></div>
+        </div>
+
+        <div style="text-align: right; margin-bottom: 10px;">
+          <a href="forgot.html" class="link" style="font-size: 13px;">
+            Forgot Password?
+          </a>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn">Login</button>
+        </div>
+
+        <div class="muted-center">— or —</div>
+
+        <div class="google-btn">
+          <img src="https://www.svgrepo.com/show/355037/google.svg" alt="">
+          <span>Sign in with Google</span>
+        </div>
+
+        <div class="foot">
+          New here?
+          <a href="register.html" class="link">Create an Account</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- 🔐 Firebase Login Logic -->
+  <script src="login.js"></script>
+    
+</body>
+</html>

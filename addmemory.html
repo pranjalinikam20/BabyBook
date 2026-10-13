@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TinyTales - Memories</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --dark-red: #7b1620;
+  --red: #d45a6a;
+  --light-pink: #FDCECE;
+  --soft-pink: #F4B7B7;
+  --med-red: #BC4E4E;
+  --white: #fff;
+  --muted: #666;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: var(--light-pink);
+}
+
+/* ================= SIDEBAR ================= */
+
+
+.sidebar{
+  width:240px;
+  background:#8b0f1f;
+  padding:24px 20px;
+  display:flex;
+  flex-direction:column;
+  flex-shrink:0;
+}
+
+.brand{
+  color:#fff;
+  font-size:28px;
+  font-weight:600;
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.nav-list{
+  list-style:none;
+}
+
+.nav-item{
+  margin-bottom:18px;
+}
+
+.nav-item a{
+  display:block;
+  padding:14px 18px;
+  border-radius:14px;
+  text-decoration:none;
+  color:#fff;
+  font-size:16px;
+}
+
+.nav-item.active a{
+  background:#e53955;
+}
+/*================= MAIN ================= */
+.main {
+  flex: 1;
+  padding: 30px;
+}
+
+.buttons {
+  margin: 20px 0;
+}
+
+.buttons button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: var(--red);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ================= MEMORY GRID ================= */
+.memories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.memory-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  min-height: 380px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.memory-card:hover {
+  transform: translateY(-5px);
+}
+
+.memory-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 10px;
+}
+
+.memory-card h3 {
+  margin-bottom: 6px;
+}
+
+.memory-card p {
+  color: var(--muted);
+}
+
+.date {
+  font-size: 13px;
+  color: var(--med-red);
+  margin-top: 8px;
+}
+
+/* ================= ADD MODAL ================= */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal {
+  background: #fff;
+  width: 520px;
+  border-radius: 18px;
+  padding: 25px;
+}
+
+.modal label {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.modal textarea {
+  resize: none;
+  height: 80px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancel-btn {
+  background: var(--soft-pink);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-btn {
+  background: #0f172a;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ================= PREVIEW ================= */
+.preview-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.preview-modal {
+  background: #fff;
+  width: 600px;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.preview-modal img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 15px;
+}
+
+.preview-close {
+  text-align: right;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--red);
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="brand">TinyTales</div>
+  <ul class="nav-list">
+    <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+    <li class="nav-item"><a href="addmemory.html">Add Memory</a></li>
+    <li class="nav-item"><a href="milestone.html">Milestones</a></li>
+    <li class="nav-item"><a href="calendar.html">Calendar</a></li>
+    <li class="nav-item"><a href="scrapbook.html">Scrapbook</a></li>
+    <li class="nav-item"><a href="timecap.html">Time Capsule</a></li>
+    <li class="nav-item"><a href="settings.html">Settings</a></li>
+  </ul>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+  <h2>Memories</h2>
+  <p>Capture and cherish precious moments</p>
+
+  <div class="buttons">
+    <button onclick="openModal()">+ Add Memory</button>
+  </div>
+
+  <div class="memories" id="memories"></div>
+</div>
+
+<!-- ADD MEMORY MODAL -->
+<div class="overlay" id="addModal">
+  <div class="modal">
+    <h2>Add New Memory</h2>
+
+    <label>Title</label>
+    <input id="title">
+
+    <label>Description</label>
+    <textarea id="desc"></textarea>
+
+    <label>Date</label>
+    <input type="date" id="date">
+
+    <label>Image</label>
+    <input type="file" id="image" accept="image/*">
+
+    <div class="modal-footer">
+      <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+      <button class="add-btn" onclick="addMemory()">Add</button>
+    </div>
+  </div>
+</div>
+
+<!-- PREVIEW -->
+<div class="preview-overlay" id="preview">
+  <div class="preview-modal">
+    <div class="preview-close" onclick="closePreview()">✖ Close</div>
+    <img id="pImg">
+    <h3 id="pTitle"></h3>
+    <p id="pDesc"></p>
+    <div class="date" id="pDate"></div>
+  </div>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById("addModal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("addModal").style.display = "none";
+}
+
+function addMemory() {
+  const title = document.getElementById("title").value;
+  const desc = document.getElementById("desc").value;
+  const date = document.getElementById("date").value;
+  const imgFile = document.getElementById("image").files[0];
+
+  if (!title || !imgFile) {
+    alert("Title & image required");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function () {
+    const card = document.createElement("div");
+    card.className = "memory-card";
+    card.onclick = () => openPreview(card);
+
+    card.innerHTML = `
+      <img src="${reader.result}">
+      <h3>${title}</h3>
+      <p>${desc}</p>
+      <div class="date">📅 ${date}</div>
+    `;
+
+    document.getElementById("memories").prepend(card);
+    closeModal();
+  };
+
+  reader.readAsDataURL(imgFile);
+}
+
+function openPreview(card) {
+  document.getElementById("pImg").src = card.querySelector("img").src;
+  document.getElementById("pTitle").innerText = card.querySelector("h3").innerText;
+  document.getElementById("pDesc").innerText = card.querySelector("p").innerText;
+  document.getElementById("pDate").innerText = card.querySelector(".date").innerText;
+  document.getElementById("preview").style.display = "flex";
+}
+
+function closePreview() {
+  document.getElementById("preview").style.display = "none";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
+}
+
+body{
+  display:flex;
+  background:#FDCECE;
+}
+
+/* SIDEBAR (same as previous) */
+.sidebar{
+  width:230px;
+  height:"100%";
+  background:#7b1620;
+  display:flex;
+  flex-direction:column;
+  padding:24px 18px;
+}
+
+.brand{
+  color:#fff;
+  font-size:26px;
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.menu{
+  list-style:none;
+  flex:1;
+}
+
+.menu-item{
+  margin-bottom:14px;
+}
+
+.menu-item a{
+  display:block;
+  padding:14px 18px;
+  color:#fff;
+  text-decoration:none;
+  border-radius:14px;
+}
+
+.menu-item a:hover{
+  background:rgba(255,255,255,0.15);
+}
+
+.bottom{
+  margin-top:auto;
+}
+
+.settings{
+  background:#651018;
+  color:#fff;
+  padding:14px;
+  border-radius:14px;
+  text-align:center;
+}
+
+/* MAIN */
+.main{
+  flex:1;
+  padding:40px;
+}
+
+h1{
+  color:#771212;
+}
+
+.subtitle{
+  color:#BC4E4E;
+  margin-bottom:30px;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:18px;
+  max-width:500px;
+}
+
+.card h3{
+  margin-top:20px;
+  color:#880D1E;
+}
+
+.card label{
+  display:block;
+  margin-top:12px;
+}
+
+.card input[type="text"],
+.card input[type="email"]{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+.toggle{
+  display:flex;
+  justify-content:space-between;
+  margin-top:15px;
+}
+
+button{
+  margin-top:25px;
+  background:#DD2D4A;
+  color:#fff;
+  border:none;
+  padding:12px 20px;
+  border-radius:10px;
+  cursor:pointer;
+}

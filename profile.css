@@ -1,0 +1,123 @@
+  * {
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  body {
+    margin: 0;
+    background: #FDCECE; /* Light pink background */
+    color: #880D1E; /* Dark red text */
+  }
+
+  .page {
+    max-width: 500px;
+    margin: auto;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #771212; /* Deep red heading */
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #BC4E4E; /* Slightly lighter red */
+    margin-bottom: 40px;
+    font-size: 18px;
+  }
+
+  .card {
+    background: #ffffff; /* Card background */
+    border-radius: 18px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(136, 13, 30, 0.1);
+  }
+
+  /* Avatar */
+  .avatar-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .avatar {
+    width: 160px;
+    height: 160px;
+    background: #fffefe; /* Light pink avatar background */
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    
+  }
+
+  .camera-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #DD2D4A; /* Medium red camera button */
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  /* Form */
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid #BC4E4E;
+    font-size: 16px;
+    background: #f7f6f6;
+    outline: none;
+    color: #771212;
+  }
+
+  textarea {
+    resize: none;
+    height: 120px;
+  }
+
+  input:focus, textarea:focus {
+    border-color: #880D1E;
+  }
+
+  /* Button */
+  .save-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 18px;
+    border: none;
+    background: #880D1E; /* Dark red button */
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .save-btn:hover {
+    background: #BC4E4E; /* Slightly lighter on hover */
+  }
+

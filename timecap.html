@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TinyTales – Time Capsule</title>
+<link rel="stylesheet" href="timecap.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="brand">TinyTales</div>
+    <ul class="nav-list">
+      <li class="nav-item"><a href="dashboard.html">Dashboard</a></li>
+      
+      <!--<li class="nav-item"><a href="addmemory.html">Add Memory</a></li>-->
+      <li class="nav-item"><a href="milestone.html">Milestones</a></li>
+      <li class="nav-item"><a href="calendar.html">Calendar</a></li>
+      <li class="nav-item"><a href="scrapbook.html">Scrapbook</a></li>
+      <li class="nav-item active"><a href="timecap.html">Time Capsule</a></li>
+      <li class="nav-item"><a href="settings.html">Settings</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="content">
+
+    <div class="page-header">
+      <h1>Time Capsule</h1>
+      <p>Save memories now, open them in the future 💌</p>
+    </div>
+
+    <div class="main">
+
+      <!-- FORM -->
+      <div class="capsule-form">
+        <h3>Add Time Capsule</h3>
+        <input type="text" id="title" placeholder="Capsule Title">
+<textarea id="message" placeholder="Message for future..."></textarea>
+<input type="date" id="unlockDate">
+<input type="file" id="media" accept="image/*,video/*,audio/*">
+       <button type="button" id="saveCapsuleBtn">Save Capsule</button>
+
+
+      </div>
+
+      <!-- LIST -->
+      <div class="capsule-box" id="capsuleBox">
+        <p>No capsules yet</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

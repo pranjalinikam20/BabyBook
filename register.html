@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TinyTales - Create Account</title>
+  <link rel="stylesheet" href="register.css" />
+
+  <!-- 🔥 Firebase SDKs (Compat) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+
+      <div class="title">
+        <h1>Join TinyTales</h1>
+        <p>Create your account and start capturing every precious milestone.</p>
+      </div>
+
+      <div class="form-title">Create Account</div>
+
+      <form id="registerForm" novalidate>
+
+        <div class="field">
+          <label>Full Name</label>
+          <input id="fullname" type="text" placeholder="Enter your name" />
+          <div class="error" id="fullnameError"></div>
+        </div>
+
+        <div class="field">
+          <label>Email</label>
+          <input id="email" type="email" placeholder="Enter your email" />
+          <div class="error" id="emailError"></div>
+        </div>
+
+        <div class="field">
+          <label>Password</label>
+          <input id="password" type="password" placeholder="Enter password" />
+          <div class="error" id="passwordError"></div>
+        </div>
+
+        <div class="field">
+          <label>Confirm Password</label>
+          <input id="confirm" type="password" placeholder="Confirm password" />
+          <div class="error" id="confirmError"></div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn">Sign Up</button>
+        </div>
+
+        <div class="muted-center">— or —</div>
+
+        <!-- 🔵 GOOGLE SIGN UP -->
+        <div class="google-btn" id="googleSignup">
+          <img src="https://www.svgrepo.com/show/355037/google.svg" alt="">
+          <span>Sign up with Google</span>
+        </div>
+
+        <div class="foot">
+          Already have an account?
+          <a href="login.html" class="link">Login</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // 🔥 Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCnk4A1k55BGKGRAEjcGgQz8-RngUN5I9g",
+      authDomain: "tinytales-a5a70.firebaseapp.com",
+      projectId: "tinytales-a5a70",
+      storageBucket: "tinytales-a5a70.appspot.com",
+      messagingSenderId: "325013977418",
+      appId: "1:325013977418:web:0257d6ddef16af445b29b3"
+    };
+
+    // 🔥 Init Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    /* ==========================
+       EMAIL & PASSWORD SIGN UP
+    =========================== */
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const fullname = document.getElementById("fullname");
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+      const confirm = document.getElementById("confirm");
+
+      const fullnameError = document.getElementById("fullnameError");
+      const emailError = document.getElementById("emailError");
+      const passwordError = document.getElementById("passwordError");
+      const confirmError = document.getElementById("confirmError");
+
+      fullnameError.textContent = "";
+      emailError.textContent = "";
+      passwordError.textContent = "";
+      confirmError.textContent = "";
+
+      let valid = true;
+
+      if (fullname.value.trim() === "") {
+        fullnameError.textContent = "Full name required";
+        valid = false;
+      }
+
+      if (!email.value.includes("@")) {
+        emailError.textContent = "Valid email required";
+        valid = false;
+      }
+
+      if (password.value.length < 6) {
+        passwordError.textContent = "Minimum 6 characters";
+        valid = false;
+      }
+
+      if (password.value !== confirm.value) {
+        confirmError.textContent = "Passwords do not match";
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      auth.createUserWithEmailAndPassword(email.value, password.value)
+        .then((cred) => {
+          cred.user.updateProfile({
+            displayName: fullname.value
+          });
+
+          alert("Account created 🎉");
+          window.location.href = "prfpg.html";
+        })
+        .catch((err) => {
+          if (err.code === "auth/email-already-in-use") {
+            emailError.textContent = "Email already registered";
+          } else {
+            alert(err.message);
+          }
+        });
+    });
+
+    /* ==========================
+       GOOGLE SIGN UP
+    =========================== */
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    document.getElementById("googleSignup").addEventListener("click", function () {
+      auth.signInWithPopup(provider)
+        .then((result) => {
+          alert("Welcome " + result.user.displayName + " 🎉");
+          window.location.href = "prfpg.html";
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    });
+  </script>
+
+</body>
+</html>

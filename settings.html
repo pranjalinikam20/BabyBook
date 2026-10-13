@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TinyTales - Settings</title>
+<link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+
+  <div class="brand">TinyTales</div>
+
+  <ul class="menu">
+    <li class="menu-item"><a href="dashboard.html">Dashboard</a></li>
+    <li class="menu-item"><a href="milestone.html">Milestones</a></li>
+    <li class="menu-item"><a href="calendar.html">Calendar</a></li>
+    <li class="menu-item"><a href="scrapbook.html">Scrapbook</a></li>
+    <li class="menu-item"><a href="timecap.html">Time Capsule</a></li>
+  </ul>
+
+  <div class="bottom">
+    <div class="settings active">⚙️ Settings</div>
+  </div>
+
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+
+  <h1>Settings</h1>
+  <p class="subtitle">Customize your TinyTales experience</p>
+
+  <div class="card">
+
+    <h3>Profile Settings</h3>
+
+    <label>Baby Name</label>
+    <input type="text" placeholder="Emma">
+
+    <label>Parent Email</label>
+    <input type="email" placeholder="example@mail.com">
+
+    <h3>Notifications</h3>
+
+    <div class="toggle">
+      <span>Enable Email Alerts</span>
+      <input type="checkbox" id="emailToggle">
+    </div>
+
+    <div class="toggle">
+      <span>Milestone Reminders</span>
+      <input type="checkbox" id="milestoneToggle">
+    </div>
+
+    <h3>Privacy</h3>
+
+    <div class="toggle">
+      <span>Private Memories</span>
+      <input type="checkbox" id="privacyToggle">
+    </div>
+
+    <button onclick="saveSettings()">Save Changes</button>
+
+  </div>
+
+</div>
+
+<script src="settings.js"></script>
+</body>
+</html>

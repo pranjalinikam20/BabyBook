@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TinyTales - Forgot</title>
+  <link rel="stylesheet" href="forgot.css" />
+
+  <!-- 🔥 Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+
+<body>
+  <div class="forgot-container">
+    <div class="top-info">
+      <h1>Forgot Your Password?</h1>
+      <p>Enter your registered email below, and we’ll send you a link to reset it.</p>
+    </div>
+
+    <!-- 🔐 RESET FORM -->
+    <form id="resetForm" novalidate>
+      <div class="input-group">
+        <br>
+        <input type="email" id="email" placeholder="Enter your email" required />
+        <div class="error" id="emailError"></div>
+        <br><br>
+      </div>
+
+      <div class="input-group">
+        <button type="submit">Send Reset Link</button>
+      </div>
+    </form>
+
+    <a href="login.html" class="back-link">← Back to Login</a>
+  </div>
+
+  <!-- 🔐 Firebase Reset Logic -->
+<script>
+  // Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyCnk4A1k55BGKGRAEjcGgQz8-RngUN5I9g",
+    authDomain: "tinytales-a5a70.firebaseapp.com",
+    projectId: "tinytales-a5a70",
+    storageBucket: "tinytales-a5a70.appspot.com",
+    messagingSenderId: "325013977418",
+    appId: "1:325013977418:web:0257d6ddef16af445b29b3",
+    measurementId: "G-Z64MW2HE8B"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  // Reset form submit
+  document.getElementById("resetForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const emailError = document.getElementById("emailError");
+    emailError.textContent = "";
+
+    if (!email) {
+      emailError.textContent = "Email is required.";
+      return;
+    }
+
+    // ✅ ONLY password reset (THIS IS CORRECT)
+    auth.sendPasswordResetEmail(email, {
+      url: "http://127.0.0.1:5500/login.html"
+    })
+    .then(() => {
+      alert("Password reset link sent! Check your email 📧");
+    })
+    .catch((error) => {
+      console.error(error);
+      if (error.code === "auth/user-not-found") {
+        emailError.textContent = "No account found with this email.";
+      } else if (error.code === "auth/invalid-email") {
+        emailError.textContent = "Invalid email address.";
+      } else {
+        alert(error.message);
+      }
+    });
+  });
+</script>
+
+
+</body>
+</html>
